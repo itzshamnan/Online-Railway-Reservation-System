@@ -1,0 +1,40 @@
+body { height: 100%;
+    margin-bottom: 30px;
+
+    background-image: url("\src\assets\train.jpg");
+/* center the background image vertically and horizontally*/
+    background-position: center center;
+
+/* removing tilings and repeatition*/
+    background-repeat: no-repeat;
+
+/* to scale image to fit the screen */
+    background-size: cover;
+
+/* fixed viewport against scroll ups and downs*/
+    background-attachment:scroll;
+
+    height:100%;
+    
+ }
+
+ .center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .center .title{
+    color: #ecb8b8f6;
+    background-color: rgb(40, 133, 53);
+    display:inline;
+    font-size: 55px;
+    font-weight: 600;
+  }
+
+  .center .btns{
+    margin-top: 80px;
+  }

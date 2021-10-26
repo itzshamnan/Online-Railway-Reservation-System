@@ -1,0 +1,40 @@
+.generic-container{
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #dbc1d9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+.tablecontainer{
+    background-color:lemonchiffon;
+}
+
+.test{
+    background-color: #009879;
+    color: #ffffff;
+    
+}
+
+.testbutton{
+    /*Change the width as much as you like, but make sure.
+    margin-left and margin-right + width = 100%*/
+    width:10%;
+    font-size: large;    
+    margin-left:45%;
+    margin-right:25%;
+    background-color: #0ceee3;
+
+    }
+
+.btns{
+    width: 50%;
+}
+
