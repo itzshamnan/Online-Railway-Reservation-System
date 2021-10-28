@@ -24,7 +24,6 @@
         <table class="table table-hover">
             <thead class="test">
                 <tr class="lines">
-                    <th>ID</th>
                     <th>TRAIN_NO</th>
                     <th>ARRIVAL_TIME</th>
                     <th>DEPARTURE_TIME</th>
@@ -32,13 +31,11 @@
                     <th>DESTINATION</th>
                     <th>FARE</th>
                     <th>JOURNEY_TIME</th>
-                    <th>JOURNEY_ROUTE</th>
                     <th>TOTAL_DISTANCE</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let train of trains">
-                    <td>{{train.id}}</td>
                     <td>{{train.train_no}}</td>
                     <td>{{train.arrival_time}}</td>
                     <td>{{train.departure_time}}</td>
@@ -46,7 +43,6 @@
                     <td>{{train.destination}}</td>
                     <td>{{train.fare}}</td>
                     <td>{{train.journey_time}}</td>
-                    <td>{{train.journey_route}}</td>
                     <td>{{train.total_distance}}</td>
             
                 </tr>

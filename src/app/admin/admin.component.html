@@ -32,7 +32,6 @@
                     <th>DESTINATION</th>
                     <th>FARE</th>
                     <th>JOURNEY_TIME</th>
-                    <th>JOURNEY_ROUTE</th>
                     <th>TOTAL_DISTANCE</th>
                     <th>ACTION</th>
                 </tr>
@@ -47,7 +46,6 @@
                     <td>{{train.destination}}</td>
                     <td>{{train.fare}}</td>
                     <td>{{train.journey_time}}</td>
-                    <td>{{train.journey_route}}</td>
                     <td>{{train.total_distance}}</td>
                     <td class="text-center"><button class="btn btn-danger btn-xs" (click)=" deleteTrain(train.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
                        <br><br>  <button class="btn btn-danger btn-xs" (click)="updateTrain(train.id)" ><span class="glyphicon glyphicon-remove"></span>Edit</button>

@@ -1,0 +1,25 @@
+.testbutton{
+    /*Change the width as much as you like, but make sure.
+    margin-left and margin-right + width = 100%*/
+    width:10%;
+    font-size: large;    
+    margin-left:45%;
+    margin-right:25%;
+    background-color: #e6ff8a;
+
+    }
+
+    .generic-container{
+        top: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #a6ffbb;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    
+    }

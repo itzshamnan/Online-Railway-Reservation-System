@@ -1,1 +1,59 @@
-<p>add works!</p>
+<div class="generic-container">
+    <div class="col-md-6 offset-md-3">
+        <h1> Add Train </h1>
+        <form (ngSubmit) = "onSubmit()">
+        
+            <div class="form-group">
+                <label> Train No</label>
+                <input type="text" class ="form-control" id = "train_no"
+                required [(ngModel)] = "trains.train_no" name = "train_no" />
+            </div>
+        
+            <div class="form-group">
+                <label> Arrival Time</label>
+                <input type="text" class ="form-control" id = "arrival_time"
+                required [(ngModel)] = "trains.arrival_time" name = "arrival_time"/>
+            </div>
+        
+            <div class="form-group">
+                <label> Departure Time</label>
+                <input type="text" class ="form-control" id = "departure_time"
+                required [(ngModel)] = "trains.departure_time" name = "departure_time"/>
+            </div>
+
+            <div class="form-group">
+                <label> Starting Station</label>
+                <input type="text" class ="form-control" id = "starting_station"
+                required [(ngModel)] = "trains.starting_station" name = "starting_station"/>
+            </div>
+        
+            <div class="form-group">
+                <label> Destination</label>
+                <input type="text" class ="form-control" id = "destination"
+                required  [(ngModel)] = "trains.destination" name = "destination"/>
+            </div>
+        
+            <div class="form-group">
+                <label>Fare</label>
+                <input type="text" class ="form-control" id = "fare"
+                required [(ngModel)] = "trains.fare" name = "fare"/>
+            </div>
+
+            <div class="form-group">
+                <label>Journey Time</label>
+                <input type="text" class ="form-control" id = "journey_time"
+                required  [(ngModel)] = "trains.journey_time" name = "journey_time"/>
+            </div>
+        
+        
+            <div class="form-group">
+                <label>Total Distance</label>
+                <input type="text" class ="form-control" id = "total_distance"
+                required  [(ngModel)] = "trains.total_distance" name = "total_distance"/>
+            </div>
+            <div>
+                <button class = "testbutton" type ="submit">Submit</button>
+            </div>
+        </form>
+        </div> 
+</div>

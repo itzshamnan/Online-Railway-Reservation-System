@@ -32,8 +32,7 @@ export class AdminComponent implements OnInit {
    }
 
    public addTrain(){
-    let resp=this.httpClientService.addTrain(this.trains);
-    resp.subscribe((data)=>this.message=data);
+    this.router.navigate(['add']);
       }
 
      public updateTrain(id: string){

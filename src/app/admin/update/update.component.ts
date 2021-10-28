@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminComponent } from '../admin.component';
 import { HttpClientService, Train } from 'src/app/service/http-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateComponent implements OnInit {
 
   id: string | any;
+
   trains:Train[] | any;
 
 
@@ -27,6 +27,8 @@ export class UpdateComponent implements OnInit {
     
   }
   onSubmit(){
+    console.log(this.trains);
+
     this.httpClientService.updateTrain(this.id, this.trains).subscribe( data =>{
       this.goToTrainList();
     }
