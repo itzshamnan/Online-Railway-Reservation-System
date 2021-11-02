@@ -73,7 +73,7 @@
                   <div class="main_home_slider text-center">
                       <div class="single_home_slider">
                           <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                              <h1>WELCOME TO PAKISTHAN RAILWAY CORPORATION</h1>
+                              <h1 style="font-size:4vw;" >WELCOME TO PAKISTHAN RAILWAY CORPORATION</h1>
                               <!--<p>Online Railway Booking Service</p>-->
                               <div class="home_btn">
                                <div class="btns">
@@ -102,13 +102,7 @@
 
 
   <ng-template #content2 let-modal>
-    <div class="button_test">
-    <button type="button" class="btnn" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-    <div class="bg-modal">
-      <div class="login-page">
+    
       <mat-card class="mat-elevation-z12">
         <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
           <mat-tab label="Sign In">
@@ -147,13 +141,11 @@
                   </mat-form-field>
                   
                   <mat-checkbox>Remember Me!</mat-checkbox>
+                  
                   <button
                     mat-raised-button
-                    color="primary"
-                    class="login-button"
-                    (click)="userpage()"
-                    >
-                    User Login
+                    class="login-button" (click)="signInHandler()" >
+                    Login with Google
                   </button>
                   <button
                     mat-raised-button
@@ -163,12 +155,9 @@
                     Admin Login
                   </button>
     
-                  <button
-                    mat-raised-button
-                    class="login-button">
-                    Login with Google
-                  </button>
+                  
                 </form>
+                
 
               </mat-card-content>
           </mat-tab>
@@ -257,10 +246,7 @@
         </mat-tab-group>
      
       </mat-card>
-      
-    </div>
     
-  </div>
   </ng-template>
 
   <ng-template #contentFeedback let-modal>

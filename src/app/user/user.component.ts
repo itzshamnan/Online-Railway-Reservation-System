@@ -3,6 +3,8 @@ import { HttpClientService, Train , Tickets} from '../service/http-client.servic
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal, NgbDropdown} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+
 
 import 'jspdf-autotable';
 declare var jsPDF: any;
@@ -30,6 +32,7 @@ export class UserComponent implements OnInit {
 
   tickets: Tickets = new Tickets('','','','','','','','',''); 
   tickets2:Tickets[] | any; 
+  pnr:any;
 
    trains:Train[] | any; 
    e:Tickets[] | any; 
@@ -44,6 +47,7 @@ export class UserComponent implements OnInit {
   deleteTicket: string | any;
   data: Tickets[] | any; 
   Listtrackigobjct:Tickets[] | any; 
+  public userDetails: any;
 
 
 
@@ -55,6 +59,13 @@ export class UserComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    const storage = localStorage.getItem('google_auth');
+
+    if (storage) {
+      this.userDetails = JSON.parse(storage);
+    } else {
+      this.signOut();
+    }
   
       this.editForm = this.fb.group({
         train_no: [''],
@@ -115,6 +126,8 @@ export class UserComponent implements OnInit {
   handleSuccessfulResponse3(response: Tickets[]) {
     console.log(response);
     this.tickets2=response;
+    
+    
     ;}
 
     getTicketsbyEmail(email:string) {
@@ -185,41 +198,37 @@ export class UserComponent implements OnInit {
 
   }
 
-  getTicket(ticket_sequence:any){
-    this.httpClientService.findByTicket_no(ticket_sequence).subscribe(
-      response =>this.createPdf(response), );
-
+  openEdit(targetModal: any, trains: Train,id:any) {
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+    this.editForm.patchValue( {
+      train_no: trains.train_no, 
+  
+   
+      starting_station: trains.starting_station,
+      destination: trains.destination,
+    
+    });
+    this.pass_id=id;
   }
 
-  createPdf(response: Tickets[]) {
-    console.log(response);
+ 
+  signOut(): void {
+    localStorage.removeItem('google_auth');
+    this.router.navigate(["/home"]).then();
+  }
 
-
-
-    var doc = new jsPDF();
-    this.head.fill
-    
-    
-
-    doc.setFontSize(18);
-    doc.text('Ticket Detail', 11, 8);
-    doc.setFontSize(11);
-    doc.setTextColor(100);
-
-    (doc as any).autoTable({
-      head: this.head,
-      body:response,
-      theme: 'plain',
-      didDrawCell: (body: { column: { index: any; }; }) => {
-        console.log(body.column.index)
-      }
-    })
-    
-    // below line for Open PDF document in new tab
-    doc.output('dataurlnewwindow')
-
-    // below line for Download PDF document  
-    doc.save('ticket.pdf');
+  onSave() {
+    console.log(this.editForm.value);
+    this.httpClientService.bookTickets(this.editForm.value)
+      .subscribe((results) => {
+        this.findTickets();
+        alert("Booking Success");
+      });
+    this.modalService.dismissAll(); //dismiss the modal
+   
   }
 
   

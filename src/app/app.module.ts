@@ -25,6 +25,8 @@ import { HttpClientService } from './service/http-client.service';
 import { TrainNoComponent } from './train/train-no/train-no.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserComponent } from './user/user.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -56,8 +58,10 @@ import { UserComponent } from './user/user.component';
     MatInputModule,
     MatCheckboxModule,
     MatIconModule,
+    MatListModule,
     NgbModule,
     ReactiveFormsModule,
+    SocialLoginModule
     
     
 
@@ -66,7 +70,23 @@ import { UserComponent } from './user/user.component';
 
     
   ],
-  providers: [HttpClientService],
+  providers: [HttpClientService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '787847535272-9ftg2ar4cv6qcgetlsg1a38u181duv2v.apps.googleusercontent.com' // add web app client id
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig
+    }
+
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

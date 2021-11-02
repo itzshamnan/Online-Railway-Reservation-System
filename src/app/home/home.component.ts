@@ -3,6 +3,7 @@ import { HttpClientService, Clients} from '../service/http-client.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 
 
@@ -28,7 +29,9 @@ export class HomeComponent implements OnInit {
   constructor(private httpClientService:HttpClientService,
     private modalService: NgbModal,
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private authService: SocialAuthService
+
     ) { }
 
   ngOnInit(): void {
@@ -92,9 +95,15 @@ export class HomeComponent implements OnInit {
  
   }
 
-  userpage(){
-    alert("Welcome User");
-    this.router.navigate(["/user"])
+  
+
+  signInHandler(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
+      localStorage.setItem('google_auth', JSON.stringify(data));
+      this.router.navigate(["/user"]).then();
+      this.modalService.dismissAll(); //dismiss the modal
+
+    });
   }
   /*
 
