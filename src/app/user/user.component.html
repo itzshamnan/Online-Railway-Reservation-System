@@ -80,17 +80,26 @@
     </div>-->
     <div class="test">
       <br>
-      <button class="btn btn-light btn-outline-dark btn-lg" (click)="open(content)">
-        <i class="fa fa-user"></i>Book Train</button>
-      &nbsp; <button class="btn btn-light btn-outline-dark btn-lg" (click)="findTickets()">
-        <i class="fa fa-user"></i>Booking History</button>
-
+      <p class="mb-2">
+        <span class="font-weight-bold">  <h1>Welcome {{userDetails?.name}}</h1></span>
+      </p>
+      <mat-nav-list>
         &nbsp;  <button class="btn btn-light btn-outline-dark btn-lg" (click)="available()">
           <i class="fa fa-user"></i>Train List</button>
 
+          
           &nbsp;  <button class="btn btn-light btn-outline-dark btn-lg" (click)="open_search(content1)" >
             <i class="fa fa-user"></i>Search Trains</button>
+  
+      &nbsp; <button class="btn btn-light btn-outline-dark btn-lg" (click)="findTickets()">
+        <i class="fa fa-user"></i>Booking History</button>
 
+        
+
+
+            &nbsp; <button class="btn btn-light btn-outline-dark btn-lg" (click)="signOut()"><i class="fa fa-user"></i>Sign out</button>
+      </mat-nav-list>
+           
             
 
 
@@ -100,7 +109,7 @@
 <div >
  
   
-  <div class="container" >  
+  <div class="container" style="overflow-x:auto;" >  
     <table class="table table-bordered table-striped" *ngIf="ticketvisible">
     <thead>
     <tr>
@@ -108,7 +117,6 @@
       <th>TRAIN NO</th>
       <th>STARTING STATION</th>
       <th>DESTINATION</th>
-      <th>DATE</th>
       <th>ACTION</th>
 
     </tr>
@@ -119,9 +127,9 @@
       <td>{{ticket.train_no}}</td>
       <td>{{ticket.starting_station}}</td>
       <td>{{ticket.destination}}</td>
-      <td>{{ticket.date}}</td>
+    
       <td>  <button class="btn btn-sm btn-danger"(click)="openDelete(contentDelete, ticket)">CANCEL</button>
-        <!--<button class="btn btn-sm btn-success" (click)="getTicket(ticket.ticket_sequence)">Download</button> -->
+        <button class="btn btn-sm btn-success" >Download</button>
       </td>
   
     </tr>
@@ -130,7 +138,7 @@
     </tbody>
   </table>
 </div> 
-<div class="container">
+<div class="container" style="overflow-x:auto;">
     <table class="table table-bordered table-striped" *ngIf="tablevisible">
       <thead>
       <tr>
@@ -140,6 +148,8 @@
         <th>STARTING STATION</th>
         <th>DESTINATION</th>
         <th>FARE</th>
+        <th>ACTION</th>
+
       </tr>
       </thead>
       <tbody>
@@ -150,6 +160,10 @@
         <td>{{train.starting_station}}</td>
         <td>{{train.destination}}</td>
         <td>{{train.fare}}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" (click)="openEdit(contentBook,train,train.id)">BOOK</button>
+        
+        </td>
   
       </tr>
  
@@ -305,6 +319,50 @@
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
     </div>
   </ng-template>
+
+  <!--BOOOOOOKING TEST-->
+
+  <ng-template #contentBook let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Booking</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group">
+          <label for="train_no">TRAIN NO</label>
+          <div class="input-group">
+            <input  formControlName="train_no" class="form-control" >
+          </div>
+        </div>
+        
+        
+        
+        <div class="form-group">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input  class="form-control" >
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Date</label>
+          <div class="input-group">
+            <input  class="form-control"  type="date">
+          </div>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info" (click)="onSave()" >Save Changes</button><!---->
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" >Cancel</button>
+    </div>
+  </ng-template>
+  <!---->
 
 
  
