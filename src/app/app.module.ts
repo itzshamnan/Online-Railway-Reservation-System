@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterUserComponent } from './register-user/register-user.component'; 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*** Angular Material */
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -22,8 +22,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminComponent } from './admin/admin.component'; 
 import { HttpClientService } from './service/http-client.service';
-import { AddComponent } from './admin/add/add.component';
-import { UpdateComponent } from './admin/update/update.component';
+import { TrainNoComponent } from './train/train-no/train-no.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -35,8 +36,8 @@ import { UpdateComponent } from './admin/update/update.component';
     FooterComponent,
     RegisterUserComponent,
     AdminComponent,
-    AddComponent,
-    UpdateComponent
+    TrainNoComponent,
+    UserComponent
     
   ],
   imports: [
@@ -54,7 +55,11 @@ import { UpdateComponent } from './admin/update/update.component';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule,
+    ReactiveFormsModule,
+    
+    
 
 
 

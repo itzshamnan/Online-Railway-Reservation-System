@@ -1,0 +1,332 @@
+<!--
+
+
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<title>TRAINS</title>
+<body>
+  <div class="bg-modal">
+
+<div class="generic-container">
+    <div class="panel panel-default">
+     Default panel contents -->
+      <!--
+      <div class="tablecontainer">
+        <table class="table table-hover">
+            <thead class="test">
+                <tr class="lines">
+                    <th>TRAIN_NO</th>
+                    <th>ARRIVAL_TIME</th>
+                    <th>DEPARTURE_TIME</th>
+                    <th>STARTING_STATION</th>
+                    <th>DESTINATION</th>
+                    <th>FARE</th>
+
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let train of trains">
+                    <td>{{train.train_no}}</td>
+                    <td>{{train.arrival_time}}</td>
+                    <td>{{train.departure_time}}</td>
+                    <td>{{train.starting_station}}</td>
+                    <td>{{train.destination}}</td>
+                    <td>{{train.fare}}</td>
+
+                    <td class="text-center"><button class="btn btn-danger btn-xs" (click)=" deleteTrain(train.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+                       <br><br>  <button class="btn btn-danger btn-xs" (click)="updateTrain(train.id)" ><span class="glyphicon glyphicon-remove"></span>Edit</button>
+                    </td>
+            
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <button class="testbutton" (click)=" addTrain()"><span class="glyphicon glyphicon-remove"></span> Add Train</button>
+
+    </div>
+</div>
+</div>
+
+</body>
+</html>
+ 
+
+-->
+
+<!DOCTYPE html>
+<html>
+  
+  <body>
+    <div class="home">
+      <div class="overlay">
+    
+  <!--
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Booking was successful !</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="alert2" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Cancellation was successful !</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>-->
+    <div class="test">
+      <br>
+      <button class="btn btn-light btn-outline-dark btn-lg" (click)="open(content)">
+        <i class="fa fa-user"></i>Book Train</button>
+      &nbsp; <button class="btn btn-light btn-outline-dark btn-lg" (click)="findTickets()">
+        <i class="fa fa-user"></i>Booking History</button>
+
+        &nbsp;  <button class="btn btn-light btn-outline-dark btn-lg" (click)="available()">
+          <i class="fa fa-user"></i>Train List</button>
+
+          &nbsp;  <button class="btn btn-light btn-outline-dark btn-lg" (click)="open_search(content1)" >
+            <i class="fa fa-user"></i>Search Trains</button>
+
+            
+
+
+    </div>
+    <br>
+   
+<div >
+ 
+  
+  <div class="container" >  
+    <table class="table table-bordered table-striped" *ngIf="ticketvisible">
+    <thead>
+    <tr>
+      <th>PNR</th>
+      <th>TRAIN NO</th>
+      <th>STARTING STATION</th>
+      <th>DESTINATION</th>
+      <th>DATE</th>
+      <th>ACTION</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ticket of tickets2">
+      <td>{{ticket.ticket_sequence}}</td>
+      <td>{{ticket.train_no}}</td>
+      <td>{{ticket.starting_station}}</td>
+      <td>{{ticket.destination}}</td>
+      <td>{{ticket.date}}</td>
+      <td>  <button class="btn btn-sm btn-danger"(click)="openDelete(contentDelete, ticket)">CANCEL</button>
+        <!--<button class="btn btn-sm btn-success" (click)="getTicket(ticket.ticket_sequence)">Download</button> -->
+      </td>
+  
+    </tr>
+  
+    
+    </tbody>
+  </table>
+</div> 
+<div class="container">
+    <table class="table table-bordered table-striped" *ngIf="tablevisible">
+      <thead>
+      <tr>
+        <th>TRAIN NO</th>
+        <th>ARRIVAL TIME</th>
+        <th>DEPARTURE TIME</th>
+        <th>STARTING STATION</th>
+        <th>DESTINATION</th>
+        <th>FARE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let train of trains">
+        <td>{{train.train_no}}</td>
+        <td>{{train.arrival_time}}</td>
+        <td>{{train.departure_time}}</td>
+        <td>{{train.starting_station}}</td>
+        <td>{{train.destination}}</td>
+        <td>{{train.fare}}</td>
+  
+      </tr>
+ 
+      
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <!---------BOOKING HISTORY---------->
+
+
+
+  
+
+  <!------------------BOOKING---------------->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Enter Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" validate>
+        <div class="form-group">
+          <label for="name">NAME</label>
+          <div class="input-group">
+            <input id="train_no" class="form-control" required [(ngModel)] = "tickets.name" name = "name" >
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">EMAIL</label>
+          <div class="input-group">
+            <input id="email" type="email" class="form-control" required [(ngModel)] = "tickets.email" name = "email" >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">ADDRESS</label>
+          <div class="input-group">
+            <input id="address" class="form-control" required [(ngModel)] = "tickets.address" name = "address" >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone_no">PHONE NO</label>
+          <div class="input-group">
+            <input id="phone_no" class="form-control" required [(ngModel)] = "tickets.phone_no" name = "phone_no" >
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="train_no">TRAIN NO</label>
+          <div class="input-group">
+            <input id="train_no" class="form-control" required [(ngModel)] = "tickets.train_no" name = "train_no" >
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <label for="starting_station">STARTING STATION</label>
+          <div class="input-group">
+            <input id="starting_station" class="form-control"  required [(ngModel)] = "tickets.starting_station" name = "starting_station" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="destination">DESTINATION</label>
+          <div class="input-group">
+            <input id="destination" class="form-control"  required  [(ngModel)] = "tickets.destination" name = "destination" >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="date">DATE</label>
+          <div class="input-group">
+            <input id="date" type="date" class="form-control"  required  [(ngModel)] = "tickets.date" name = "date" >
+          </div>
+        </div>
+       
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info" >Submit</button>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+  <!-----------SEARCHING------------->
+
+  <ng-template #content1 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-search-title">Enter Train Number or Starting and Destination</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm"  validate>
+        <div class="form-group">
+          <label for="name">Train Number</label>
+          <div class="input-group">
+            <input type="text" id = "train_no" [(ngModel)] = "trains2.train_no" name = "train_no">          </div>
+        </div>
+        <div>
+          <button class="testbutton" (click)=" getTrainByTrainNo(trains2.train_no)"><span class="glyphicon glyphicon-remove"></span> Search</button>
+      </div>
+      <br>
+      <br>
+
+      <div class="form-group">
+        <label for="name">Starting</label>
+        <div class="input-group">
+          <input type="text" id = "train_no" [(ngModel)] = "trains2.starting_station" name = "starting_station">          </div>
+          <label for="name">Destinaion</label>
+        <div class="input-group">
+          <input type="text" id = "train_no" [(ngModel)] = "trains2.destination" name = "destination">          </div>
+      </div>
+      <div>
+        <button class="testbutton" (click)=" getTrainByStart_Dest(trains2.starting_station,trains2.destination)"><span class="glyphicon glyphicon-remove"></span> Search</button>
+    </div>
+
+
+       
+        
+       
+       
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #contentDelete let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Confirm Delete</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h2>Are you sure you want to cancel this ticket ?</h2>
+      <div class="border text-center"> 
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()" >Yes, Cancel!</button> 
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+
+ 
+  
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script> 
+
+<script src="src/jquery-ui.min.js"></script>
+<script src="src/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+  
+</div>
+</div>
+
+</body>
+</html>
+
+  

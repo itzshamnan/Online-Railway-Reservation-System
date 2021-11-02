@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './admin/add/add.component';
 import { AdminComponent } from './admin/admin.component';
-import { UpdateComponent } from './admin/update/update.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { TrainNoComponent } from './train/train-no/train-no.component';
 import { TrainComponent } from './train/train.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
+  {path:'', redirectTo:'/home',pathMatch:'full'},
+  {path:'home', component:HomeComponent},
   {path:'aboutus', component:HomeComponent},
-  {path:'signup', component:RegisterUserComponent},
+  {path:'home/user', component:UserComponent},
+  {path:'home/signup', component:RegisterUserComponent},
   {path:'trains', component:TrainComponent},
+  {path:'home/trains', component:TrainComponent},
+  {path:'train_no/:train_no', component:TrainNoComponent},
   {path:'admin', component:AdminComponent},
-  {path:'update/:id',component:UpdateComponent},
-  {path:'add',component:AddComponent}
+  {path:'user', component:UserComponent},
 ];
 
 @NgModule({

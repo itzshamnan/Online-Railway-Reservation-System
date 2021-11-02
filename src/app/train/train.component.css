@@ -1,3 +1,18 @@
+
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 30px;
+    cursor: pointer;
+    text-decoration: salmon;
+    display: block;
+   /* transform: rotate(45deg); */
+}
+
+
+/*
 .generic-container{
     top: 0;
     margin: 0;
@@ -5,17 +20,20 @@
     width: 100%;
     height: 100%;
     display: block;
-    background-color: #dbc1d9;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 
 }
+*/
 
 .tablecontainer{
-    background-color:lemonchiffon;
+    
+    background-color:rgb(255, 255, 255);
+    position: relative;
 }
+
 
 .test{
     background-color: #009879;

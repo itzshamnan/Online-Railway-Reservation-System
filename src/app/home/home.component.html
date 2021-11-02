@@ -1,10 +1,401 @@
-<body>
-  <div style="text-align:center">
-    <div class="center">
-      <div class="title">Welcome to<br>Railway Reservation System </div>
-      <div class="btns"><a mat-raised-button color="white" routerLink="trains">Available Trains</a></div>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>RAILWAY</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- this file was missing -->
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+  
+  <!-- this file was moved after the jQuery Datatables library was laoded -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>  
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="200">
+
+  <!--
+  <div class="container">
+    <div style="text-align:center">
+      <div class="center">
+        <div class="title">Welcome to<br>Railway Reservation System </div>
+          <div class="btns"><a mat-raised-button color="white" routerLink="trains">Available Trains</a></div>
+      </div>
     </div>
- 
   </div>
+ <div class="footer-basic">
+  
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 </body>
+</html>
+
+-->
+
+
+
+
+<section id="home" class="home">
+  <div class="overlay">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 ">
+                  <div class="main_home_slider text-center">
+                      <div class="single_home_slider">
+                          <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                              <h1>WELCOME TO PAKISTHAN RAILWAY CORPORATION</h1>
+                              <!--<p>Online Railway Booking Service</p>-->
+                              <div class="home_btn">
+                               <div class="btns">
+                                <nav class="navbar navbar-dark bg-secondary mx-auto" mx-auto >
+                                  <div class="mx-auto">
+                                    <a class="navbar-nav mx-auto" mat-raised-button color="success" class="navbar-nav ml-auto" routerLink="trains">Available Trains</a>  <br>  
+                                    <a mat-raised-button color="accent" (click)="open2(content2)">Sign Up / Log In</a>
+
+                                    
+                                  </div>
+                                </nav>
+                                 <!--   &nbsp;<a mat-raised-button color="accent" routerLink="user">User Demo</a>  --> 
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+      
+  </section>
+ 
+
+
+  <ng-template #content2 let-modal>
+    <div class="button_test">
+    <button type="button" class="btnn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    <div class="bg-modal">
+      <div class="login-page">
+      <mat-card class="mat-elevation-z12">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          <mat-tab label="Sign In">
+              <mat-card-content>
+                <form #ff="ngForm" (ngSubmit)="onSubmit2(ff)" validate >
+                  <mat-form-field>
+                    <input
+                      matInput
+                      placeholder="Email"
+                      required [(ngModel)] = "clients2.email" name = "email"
+                      name="email"
+                      ngModel
+                      #email="ngModel">
+                      <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      placeholder="Password"
+                      type="password"
+                      required [(ngModel)] = "clients2.password" name = "password"
+                      minlength="6"
+                      name="password"
+                      ngModel
+                      #password="ngModel">
+                      <mat-error
+                        *ngIf="password.errors && password.errors.required">
+                        Password is required
+                      </mat-error>
+                      <mat-error
+                        *ngIf="password.errors && password.errors.minlength">
+                        Password must be of length 6
+                      </mat-error>
+                    <mat-icon matSuffix>lock</mat-icon>
+                  </mat-form-field>
+                  
+                  <mat-checkbox>Remember Me!</mat-checkbox>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="login-button"
+                    (click)="userpage()"
+                    >
+                    User Login
+                  </button>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="login-button"
+                    >
+                    Admin Login
+                  </button>
+    
+                  <button
+                    mat-raised-button
+                    class="login-button">
+                    Login with Google
+                  </button>
+                </form>
+
+              </mat-card-content>
+          </mat-tab>
+          <mat-tab label="Sign Up">
+            <mat-card-content>
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" validate>
+              
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Name"
+                    required
+                  
+                    ngModel
+                    required [(ngModel)] = "clients2.name" name = "name"
+                    username="true"
+                    #username="ngModel"
+                   > <mat-error *ngIf="username.invalid">Name is required</mat-error>
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  
+    
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Email"
+                    required
+                    name="email"
+                    ngModel
+                    required [(ngModel)] = "clients2.email" name = "email"
+                    email="true"
+                    #email="ngModel">
+                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Phone No"
+                    required
+                    name="phone_no"
+                    ngModel
+                    required [(ngModel)] = "clients2.phone_no" name = "phone_no"
+                    number="true"
+                    #number="ngModel">
+                    <mat-error *ngIf="number.invalid">Number is required</mat-error>
+                  <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Password"
+                    type="password"
+                    required
+                    minlength="6"
+                    name="password"
+                    ngModel
+                    required [(ngModel)] = "clients2.password" name = "password"
+                    #password="ngModel">
+                    <mat-error
+                      *ngIf="password.errors && password.errors.required">
+                      Password is required
+                    </mat-error>
+                    <mat-error
+                      *ngIf="password.errors && password.errors.minlength">
+                      Password must be of length 6
+                    </mat-error>
+                  <mat-icon matSuffix>lock</mat-icon>
+    
+                </mat-form-field>
+                
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="signup-button"
+                  
+                  >
+                  Sign Up
+                </button>
+              </form>
+            </mat-card-content>
+           
+          </mat-tab>
+          
+        </mat-tab-group>
+     
+      </mat-card>
+      
+    </div>
+    
+  </div>
+  </ng-template>
+
+  <ng-template #contentFeedback let-modal>
+    <div class="button_test">
+    <button type="button" class="btnn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    <div class="bg-modal">
+      <div class="login-page">
+      <mat-card class="mat-elevation-z12">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          
+          <mat-tab label="Feedback">
+            <mat-card-content>
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" validate>
+              
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Name"
+                    required
+                  
+                    ngModel
+                    required [(ngModel)] = "clients2.name" name = "name"
+                    username="true"
+                    #username="ngModel"
+                   > <mat-error *ngIf="username.invalid">Name is required</mat-error>
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  
+    
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Email"
+                    required
+                    name="email"
+                    ngModel
+                    required [(ngModel)] = "clients2.email" name = "email"
+                    email="true"
+                    #email="ngModel">
+                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Phone No"
+                    required
+                    name="phone_no"
+                    ngModel
+                    required [(ngModel)] = "clients2.phone_no" name = "phone_no"
+                    number="true"
+                    #number="ngModel">
+                    <mat-error *ngIf="number.invalid">Number is required</mat-error>
+                  <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Give us your feedback"
+                    required
+                    name="phone_no"
+                    ngModel
+                    required 
+                  >
+                </mat-form-field>
+                
+                
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="signup-button"
+                  
+                  >
+                  Submit
+                </button>
+              </form>
+            </mat-card-content>
+           
+          </mat-tab>
+          
+        </mat-tab-group>
+     
+      </mat-card>
+      
+    </div>
+    
+  </div>
+  </ng-template>
+
+<!--
+  <div class="footer-clean">
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Train Booking</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Corporation</a></li>
+                  
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 item social">
+                  <a href="#"><span class="material-icons">
+                  facebook
+                </span></a>
+                <a href="#"><span class="material-icons">
+                  call
+                </span></a>
+                <a ><span class="material-icons" (click)="open5(contentFeedback)">
+                  feedback
+                </span></a>
+                    <p class="copyright">Pakisthan Railway Corporation © 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+
+ 

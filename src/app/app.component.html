@@ -1,6 +1,144 @@
-<app-header></app-header>
-<app-home></app-home>
-<router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<div class="footer-clean">
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Train Booking</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Corporation</a></li>
+                  
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 item social">
+                  <a href="#"><span class="material-icons">
+                  facebook
+                </span></a>
+                <a href="#"><span class="material-icons">
+                  call
+                </span></a>
+                <a class="test" (click)="open5(contentFeedback)"><span class="material-icons">
+                  feedback
+                </span></a>
+                    <p class="copyright">Pakisthan Railway Corporation © 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </div>
+
+  <ng-template #contentFeedback let-modal>
+    <div class="button_test">
+    <button type="button" class="btnn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    <div class="bg-modal">
+      <div class="login-page">
+      <mat-card class="mat-elevation-z12">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          
+          <mat-tab label="Feedback">
+            <mat-card-content>
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" validate>
+              
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Name"
+                    required
+                  
+                    ngModel
+                    required  name = "name"
+                    username="true"
+                    #username="ngModel"
+                   > <mat-error *ngIf="username.invalid">Name is required</mat-error>
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <br>
+                  
+    
+                </mat-form-field>
+
+                <br>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Email"
+                    required
+                    name="email"
+                    ngModel
+                    required  name = "email"
+                    email="true"
+                    #email="ngModel">
+                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
+                <br>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Phone No"
+                    required
+                    name="phone_no"
+                    ngModel
+                    required  name = "phone_no"
+                    number="true"
+                    #number="ngModel">
+                    <mat-error *ngIf="number.invalid">Number is required</mat-error>
+                  <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+
+                <br>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Give us your feedback"
+                    required
+                    name="phone_no"
+                    ngModel
+                    required 
+                  >
+                </mat-form-field>
+
+                <br>
+                
+                
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="signup-button"
+                  
+                  >
+                  Submit
+                </button>
+              </form>
+            </mat-card-content>
+           
+          </mat-tab>
+          
+        </mat-tab-group>
+     
+      </mat-card>
+      
+    </div>
+    
+  </div>
+  </ng-template>
+
+
+<!--
+<app-footer></app-footer>-->
 
